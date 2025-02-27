@@ -16,14 +16,24 @@ private IFoodMenu menuService;
 	public void processPayment (String item,int quantity,String method,IFoodMenu menuService,String paymentMethod) {
 		double itemPrice = menuService.getPrice(item);
 		double totalAmount = itemPrice * quantity;
-		System.out.println("Calculating total: "+ quantity+ " x LKR" + itemPrice + " = LKR" + totalAmount);
-		
+		System.out.println("\n==============PAYMENT DETAILS==============");
+		System.out.println("Calculating total : "+ quantity+ " x LKR" + itemPrice + " = LKR" + totalAmount);
+		System.out.println("Total Amount      : " + totalAmount);
+		System.out.println("Payment Method    : " + paymentMethod);
+
+		System.out.println("===========================================");
 		boolean verified = paymentService.verifyPayment(paymentMethod, totalAmount);
 		
+		System.out.println("\n==============PAYMENT STATUS==============");
+
 		if(verified) {
-			System.out.println("Payment successful! Order confirmed.");
+			System.out.println("Payment successful!");
+			System.out.println("Order confirmed.Enjoy your meal!");
+
 		}else {
 			System.out.println("Payment failed");
 		}
+		System.out.println("===========================================\n");
+
 	}
 }
