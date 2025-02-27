@@ -6,13 +6,25 @@ import org.osgi.framework.ServiceRegistration;
 
 public class Activator implements BundleActivator {
 
+	private ServiceRegistration customerServiceRegistration;
 	private ServiceRegistration foodMenuReServiceRegistration;
 	private ServiceRegistration deliveryServiceRegistration;
 	private ServiceRegistration paymentServiceRegistration;
 	
+
 	@Override
 	public void start(BundleContext context) throws Exception {
-		System.out.println("Producer service started");
+		System.out.println(".....Producer Services started.....");
+
+
+		// create an object of customer service
+		CustomerService customerService = new CustomerService(null);
+		
+
+		// register the service with the OSGI framework
+		customerServiceRegistration = context.registerService(ICustomerService.class.getName(), customerService, null);
+
+	
 		
 		RestaurantService restaurantService = new RestaurantService();
 		foodMenuReServiceRegistration = context.registerService(
@@ -25,15 +37,20 @@ public class Activator implements BundleActivator {
 		PaymentService paymentService = new PaymentService();
 		paymentServiceRegistration = context.registerService(
 				IPaymentService.class.getName(), paymentService, null);
+
 	}
-	
+
 	@Override
 	public void stop(BundleContext context) throws Exception {
-		System.out.println("Producer services stopped");
-		
+
+		System.out.println(".....Producer Services stopped.....");
+
+		// unregister the customer service before the stopping the bundle
+		customerServiceRegistration.unregister();		
 		foodMenuReServiceRegistration.unregister();
 		deliveryServiceRegistration.unregister();
 		paymentServiceRegistration.unregister();
+
 	}
 
 }
