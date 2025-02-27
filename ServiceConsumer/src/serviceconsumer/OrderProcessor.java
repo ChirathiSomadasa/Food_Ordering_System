@@ -1,16 +1,18 @@
 package serviceconsumer;
 
 import serviceproducer.IFoodMenu;
+import serviceproducer.IPaymentService;
 
-public class OrderProcessorImpl {
+
+public class OrderProcessor {
 	
 	private IFoodMenu menuService;
-//	private PaymentSystem paymentSystem;
+	private IPaymentService paymentSystem;
 
-	public OrderProcessorImpl(IFoodMenu menuService) {
+	public OrderProcessor(IFoodMenu menuService, IPaymentService paymentSystem) {
 		// TODO Auto-generated constructor stub
 		this.menuService = menuService;
-//		this.paymentSystem = paymentSystem;
+		this.paymentSystem = paymentSystem;
 	}
 	
 	public void placeOrder(String item, int qty) {
