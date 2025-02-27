@@ -1,13 +1,16 @@
 package serviceconsumer;
 
 import org.osgi.framework.BundleActivator;
+
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 
 import serviceproducer.IPaymentService;
+import serviceproducer.IDeliveryService;
 
 public class Activator implements BundleActivator {
 	
+	private ServiceReference deliveryServiceReference;
 	private ServiceReference paymentServiceReference;
 
 	@Override
@@ -15,16 +18,21 @@ public class Activator implements BundleActivator {
 		System.out.println("Consumer services strated....");
 		
 		//Get references to the producer services
+		
+		deliveryServiceReference = context.getServiceReference(IDeliveryService.class.getName());
 		paymentServiceReference = context.getServiceReference(IPaymentService.class.getName());
 		
 		
+		IDeliveryService deliveryService = (IDeliveryService) context.getService(deliveryServiceReference);
 		IPaymentService paymentService = (IPaymentService) context.getService(paymentServiceReference);
 	
 		//Initialize consumer services
 		
+		RestaurantSystem restaurantSystem = new RestaurantSystem(deliveryService);
 		//PaymentSystem paymentSystem = new PaymentSystem(paymentService,foodMenuService);
 		
 		//Sample data
+		restaurantSystem.notifyCustomer("12345","delivered");
 		//paymentSystem.processPayment("Pizza", 2, "Credit Card", foodMenuService, "Credit Card");
 	
 	}
@@ -32,6 +40,7 @@ public class Activator implements BundleActivator {
 	@Override
 	public void stop(BundleContext context) throws Exception {
 		System.out.println("Consumer services stopped");
+		context.ungetService(deliveryServiceReference);
 		context.ungetService(paymentServiceReference);
 		
 	}
