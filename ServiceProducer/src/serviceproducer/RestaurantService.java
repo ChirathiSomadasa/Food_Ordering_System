@@ -1,21 +1,34 @@
 package serviceproducer;
 
-public class RestaurantService implements IFoodMenu {
+import java.util.HashMap;
+import java.util.Map;
 
+public class RestaurantService implements IFoodMenu {
+	
+	private Map<String, Double> menu = new HashMap();
+
+	
 	public RestaurantService() {
-		// TODO Auto-generated constructor stub
+
+		menu.put("Burger", 200.00);
+		menu.put("Pizza", 400.00);
+		menu.put("Salad", 200.00);
+		menu.put("Pasta", 300.00);
+
 	}
 
 	@Override
-	public String displayMenu() {
-		// TODO Auto-generated method stub
-		return null;
+	public void displayMenu() {
+		System.out.println("---Food Menu---");
+		
+		for( Map.Entry<String, Double> entry : menu.entrySet()) {
+			System.out.println(entry.getKey() + ": LKR" + entry.getValue());
+		}
 	}
 
 	@Override
 	public Double getPrice(String item) {
-		// TODO Auto-generated method stub
-		return null;
+		return  menu.getOrDefault(item, 0.0);
 	}
 
 }
