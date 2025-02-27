@@ -12,9 +12,7 @@ public class Activator implements BundleActivator {
 
 	private ServiceReference foodMenuReServiceReference;
 	private ServiceReference paymentServiceReference;
-
-	// Reference to the customer service
-	private ServiceReference customerServiceReference;
+	private ServiceReference customerServiceReference;// Reference to the customer service
 
 	@Override
 	public void start(BundleContext context) throws Exception {
@@ -24,16 +22,14 @@ public class Activator implements BundleActivator {
 		// Get references to the producer services
 		foodMenuReServiceReference = context.getServiceReference(IFoodMenu.class.getName());
 		paymentServiceReference = context.getServiceReference(IPaymentService.class.getName());
-		// Get the service reference for ICustomerService
 		customerServiceReference = context.getServiceReference(ICustomerService.class.getName());
 
+		// Obtain the actual service object
 		IFoodMenu foodMenuService = (IFoodMenu) context.getService(foodMenuReServiceReference);
 		IPaymentService paymentService = (IPaymentService) context.getService(paymentServiceReference);
-		// Obtain the actual service object
 		ICustomerService customerService = (ICustomerService) context.getService(customerServiceReference);
 
 		// Initialize consumer services
-
 		PaymentSystem paymentSystem = new PaymentSystem(paymentService, foodMenuService);
 
 		// Create an object of CustomerSystem using the retrieved customerService
@@ -46,7 +42,6 @@ public class Activator implements BundleActivator {
 		paymentSystem.processPayment("Pizza", 2, "Credit Card", foodMenuService, "Credit Card");
 
 		// Provide notification
-
 		customerSystem.notifyCustomer("Order is comfirmed");
 
 	}
@@ -55,8 +50,8 @@ public class Activator implements BundleActivator {
 	public void stop(BundleContext context) throws Exception {
 
 		System.out.println(".....Consumer services stopped.....");
+		// ungetService before the stopping the bundle
 		context.ungetService(customerServiceReference);
-
 		context.ungetService(foodMenuReServiceReference);
 		context.ungetService(paymentServiceReference);
 
