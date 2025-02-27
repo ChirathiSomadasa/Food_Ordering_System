@@ -18,10 +18,10 @@ public class RestaurantService implements IFoodMenu {
 
 	@Override
 	public void displayMenu() {
-		System.out.println("---Food Menu---");
+		System.out.println("====Food Menu====\n");
 		
 		for( Map.Entry<String, Double> entry : menu.entrySet()) {
-			System.out.println(entry.getKey() + ": LKR" + entry.getValue());
+			System.out.println(entry.getKey() + ": LKR " + entry.getValue());
 		}
 	}
 
@@ -32,8 +32,14 @@ public class RestaurantService implements IFoodMenu {
 
 	@Override
 	public void processOrder(String item, int qty) {
-		// TODO Auto-generated method stub
-		System.out.println("Processing order : " + item + "x" + qty );
+//		System.out.println("Processing order : " + item + " x " + qty );
+		
+		System.out.println("\n==========ORDER DETAILS==========");
+		System.out.println("Food Item    :" + item);
+		System.out.println("Quantity   :" + qty);
+//		System.out.println("Total Amount :" + address);
+//		System.out.println("Customer Contact :" + contact);
+		System.out.println("====================================\n");
 	}
 
 }
