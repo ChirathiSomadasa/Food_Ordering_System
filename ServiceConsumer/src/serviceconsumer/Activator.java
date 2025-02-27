@@ -29,13 +29,13 @@ public class Activator implements BundleActivator {
 		deliveryServiceReference = context.getServiceReference(IDeliveryService.class.getName());
 		
 		IFoodMenu foodMenuService = (IFoodMenu) context.getService(foodMenuServiceReference);
+		ICustomerService customerService = (ICustomerService) context.getService(customerServiceReference);
 		IPaymentService paymentService = (IPaymentService) context.getService(paymentServiceReference);
 		IDeliveryService deliveryService = (IDeliveryService) context.getService(deliveryServiceReference);
 
 		// Initialize consumer services
 		RestaurantSystem restaurantSystem = new RestaurantSystem(deliveryService);
 		PaymentSystem paymentSystem = new PaymentSystem(paymentService,foodMenuService);
-		ICustomerService customerService = (ICustomerService) context.getService(customerServiceReference);
 		OrderProcessor orderProcessor = new OrderProcessor(foodMenuService);
 		CustomerSystem customerSystem = new CustomerSystem(customerService);// Create an object of CustomerSystem using the retrieved customerService
 
