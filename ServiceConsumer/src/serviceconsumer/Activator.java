@@ -25,10 +25,10 @@ public class Activator implements BundleActivator {
 	
 		//Initialize consumer services
 		
-		//PaymentSystem paymentSystem = new PaymentSystem(paymentService,foodMenuService);
+		PaymentSystem paymentSystem = new PaymentSystem(paymentService,foodMenuService);
 		
 		//Sample data
-		//paymentSystem.processPayment("Pizza", 2, "Credit Card", foodMenuService, "Credit Card");
+		paymentSystem.processPayment("Pizza", 2, "Credit Card", foodMenuService, "Credit Card");
 	
 	}
 	
