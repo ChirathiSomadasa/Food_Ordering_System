@@ -12,8 +12,6 @@ public class Activator implements BundleActivator {
 
 	private ServiceReference foodMenuReServiceReference;
 	private ServiceReference paymentServiceReference;
-
-	// Reference to the customer service
 	private ServiceReference customerServiceReference;
 
 	@Override
@@ -24,27 +22,29 @@ public class Activator implements BundleActivator {
 		// Get references to the producer services
 		foodMenuReServiceReference = context.getServiceReference(IFoodMenu.class.getName());
 		paymentServiceReference = context.getServiceReference(IPaymentService.class.getName());
-		// Get the service reference for ICustomerService
 		customerServiceReference = context.getServiceReference(ICustomerService.class.getName());
 
+		
+		// Obtain the actual service object
 		IFoodMenu foodMenuService = (IFoodMenu) context.getService(foodMenuReServiceReference);
 		IPaymentService paymentService = (IPaymentService) context.getService(paymentServiceReference);
-		// Obtain the actual service object
 		ICustomerService customerService = (ICustomerService) context.getService(customerServiceReference);
 
+		
 		// Initialize consumer services
-
+		OrderProcessor orderProcessor = new OrderProcessor(foodMenuService);
 		PaymentSystem paymentSystem = new PaymentSystem(paymentService, foodMenuService);
-
-		// Create an object of CustomerSystem using the retrieved customerService
 		CustomerSystem customerSystem = new CustomerSystem(customerService);
+		// Create an object of CustomerSystem using the retrieved customerService
+		
 
-		// Provide sample customer details
-		customerSystem.inputCustomerDetails("Amali", "amali@gmail.com", "Kurunegala", "0110000000");
+		
 
 		// Sample data
+		orderProcessor.placeOrder("Pizza", 2);
+		orderProcessor.processOrder("Pizza", 2);
 		paymentSystem.processPayment("Pizza", 2, "Credit Card", foodMenuService, "Credit Card");
-
+		customerSystem.inputCustomerDetails("Amali", "amali@gmail.com", "Kurunegala", "0110000000");
 		// Provide notification
 
 		customerSystem.notifyCustomer("Order is comfirmed");
@@ -56,7 +56,6 @@ public class Activator implements BundleActivator {
 
 		System.out.println(".....Consumer services stopped.....");
 		context.ungetService(customerServiceReference);
-
 		context.ungetService(foodMenuReServiceReference);
 		context.ungetService(paymentServiceReference);
 

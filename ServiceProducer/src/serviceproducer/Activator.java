@@ -16,15 +16,13 @@ public class Activator implements BundleActivator {
 		System.out.println(".....Producer Services started.....");
 
 
-		// create an object of customer service
+		
+
+		// register the service with the OSGI framework		
 		CustomerService customerService = new CustomerService(null);
-		
-
-		// register the service with the OSGI framework
-		customerServiceRegistration = context.registerService(ICustomerService.class.getName(), customerService, null);
-
+		customerServiceRegistration = context.registerService(
+				ICustomerService.class.getName(), customerService, null);
 	
-		
 		RestaurantService restaurantService = new RestaurantService();
 		foodMenuReServiceRegistration = context.registerService(
 				IFoodMenu.class.getName(), restaurantService, null);
@@ -40,7 +38,6 @@ public class Activator implements BundleActivator {
 
 		System.out.println(".....Producer Services stopped.....");
 
-		// unregister the customer service before the stopping the bundle
 		customerServiceRegistration.unregister();		
 		foodMenuReServiceRegistration.unregister();
 		paymentServiceRegistration.unregister();
