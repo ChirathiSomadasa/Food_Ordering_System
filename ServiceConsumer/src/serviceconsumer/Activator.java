@@ -25,6 +25,7 @@ public class Activator implements BundleActivator {
 		//Get references to the producer services
 		
 		foodMenuServiceReference = context.getServiceReference(IFoodMenu.class.getName());
+		customerServiceReference = context.getServiceReference(ICustomerService.class.getName());
 		paymentServiceReference = context.getServiceReference(IPaymentService.class.getName());
 		deliveryServiceReference = context.getServiceReference(IDeliveryService.class.getName());
 		
