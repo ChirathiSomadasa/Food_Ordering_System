@@ -19,7 +19,7 @@ public class Activator implements BundleActivator {
 	@Override
 	public void start(BundleContext context) throws Exception {
 
-		System.out.println("Consumer services strated....");
+		System.out.println(".....Consumer services strated.....");
 
 		// Get references to the producer services
 		foodMenuReServiceReference = context.getServiceReference(IFoodMenu.class.getName());
@@ -54,7 +54,7 @@ public class Activator implements BundleActivator {
 	@Override
 	public void stop(BundleContext context) throws Exception {
 
-		System.out.println("Consumer services stopped");
+		System.out.println(".....Consumer services stopped.....");
 		context.ungetService(customerServiceReference);
 
 		context.ungetService(foodMenuReServiceReference);

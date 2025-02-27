@@ -13,7 +13,7 @@ public class Activator implements BundleActivator {
 
 	@Override
 	public void start(BundleContext context) throws Exception {
-		System.out.println("Producer Services started");
+		System.out.println(".....Producer Services started.....");
 
 
 		// create an object of customer service
@@ -38,7 +38,7 @@ public class Activator implements BundleActivator {
 	@Override
 	public void stop(BundleContext context) throws Exception {
 
-		System.out.println("Producer Services stopped");
+		System.out.println(".....Producer Services stopped.....");
 
 		// unregister the customer service before the stopping the bundle
 		customerServiceRegistration.unregister();		
