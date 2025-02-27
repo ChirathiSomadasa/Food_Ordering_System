@@ -1,8 +1,8 @@
 package serviceproducer;
 
-public class OrderProcessorServiceImpl implements IOrderProcessor {
+public class OrderProcessorService implements IOrderProcessor {
 
-	public OrderProcessorServiceImpl() {
+	public OrderProcessorService() {
 		// TODO Auto-generated constructor stub
 	}
 

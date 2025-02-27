@@ -1,8 +1,8 @@
 package serviceproducer;
 
-public class RestaurantServiceImpl implements IFoodMenu {
+public class RestaurantService implements IFoodMenu {
 
-	public RestaurantServiceImpl() {
+	public RestaurantService() {
 		// TODO Auto-generated constructor stub
 	}
 
