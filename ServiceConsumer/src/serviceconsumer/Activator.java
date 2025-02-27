@@ -53,8 +53,8 @@ public class Activator implements BundleActivator {
 		// Create an object of CustomerSystem using the retrieved customerService
 
 		orderProcessor.placeOrder("Pizza", 2);
-		orderProcessor.processOrder("Pizza", 2);
 		paymentSystem.processPayment("Pizza", 2, "Credit Card", foodMenuService, "Credit Card");
+		orderProcessor.processOrder("Pizza", 2);
 		customerSystem.inputCustomerDetails("Amali", "amali@gmail.com", "Kurunegala", "0110000000");
 		restaurantSystem.notifyCustomer("12345","delivered");
 		// Provide notification
