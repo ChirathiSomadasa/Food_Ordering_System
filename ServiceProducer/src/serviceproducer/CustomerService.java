@@ -6,6 +6,14 @@ package serviceproducer;
  * notifications
  */
 public class CustomerService implements ICustomerService {
+	
+	private IPaymentService paymentService;
+	
+	public CustomerService(IPaymentService paymentService) {
+		this.paymentService = paymentService;
+	}
+	
+	
 	@Override
 	public void displayCustomerDetails(String name, String email, String address, String contact) {
 		System.out.println("\n==========CUSTOMER DETAILS==========");
@@ -14,7 +22,6 @@ public class CustomerService implements ICustomerService {
 		System.out.println("Customer Address :" + address);// Display customer address
 		System.out.println("Customer Contact :" + contact);// Display customer contact
 		System.out.println("====================================\n");
-
 	}
 
 	/**
@@ -24,5 +31,8 @@ public class CustomerService implements ICustomerService {
 	public void notifyCustomer(String message) {
 		System.out.println("" + message);// Display given message
 	}
+	
+	
+	 
 
 }

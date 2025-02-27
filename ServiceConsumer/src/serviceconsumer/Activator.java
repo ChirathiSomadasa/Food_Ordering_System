@@ -27,8 +27,9 @@ public class Activator implements BundleActivator {
 		// Provide sample customer details
 		customerSystem.inputCustomerDetails("Amali", "amali@gmail.com", "Kurunegala", "0110000000");
 		// Provide notification
-		customerService.notifyCustomer("Your order has been delivered!");
 
+		customerSystem.notifyCustomer("Order is comfirmed");
+ 
 
 	}
 

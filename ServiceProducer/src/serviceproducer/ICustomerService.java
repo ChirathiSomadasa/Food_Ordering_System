@@ -12,5 +12,5 @@ public interface ICustomerService {
 
 	// Sends notification message to the customer
 	void notifyCustomer(String message);
-
+	
 }

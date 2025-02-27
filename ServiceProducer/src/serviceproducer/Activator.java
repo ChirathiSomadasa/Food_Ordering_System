@@ -12,8 +12,9 @@ public class Activator implements BundleActivator {
 	public void start(BundleContext context) throws Exception {
 		System.out.println(".....Producer Services started......");
 
+
 		// create an object of customer service
-		ICustomerService customerService = new CustomerService();
+		CustomerService customerService = new CustomerService(null);
 
 		// register the service with the OSGI framework
 		customerServiceRegistration = context.registerService(ICustomerService.class.getName(), customerService, null);
