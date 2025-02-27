@@ -19,18 +19,19 @@ public class Activator implements BundleActivator {
 
 		// create an object of customer service
 		CustomerService customerService = new CustomerService(null);
+
 		
 
 		// register the service with the OSGI framework
 		customerServiceRegistration = context.registerService(ICustomerService.class.getName(), customerService, null);
-
+		
 	
 		
 		RestaurantService restaurantService = new RestaurantService();
 		foodMenuReServiceRegistration = context.registerService(
 				IFoodMenu.class.getName(), restaurantService, null);
 		
-		DeliveryService deliveryService = new DeliveryService();
+		DeliveryService deliveryService = new DeliveryService(customerService);
 		deliveryServiceRegistration = context.registerService(
 				IDeliveryService.class.getName(), deliveryService, null);
 		
