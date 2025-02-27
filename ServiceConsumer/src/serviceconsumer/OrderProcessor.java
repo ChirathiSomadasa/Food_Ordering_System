@@ -10,7 +10,6 @@ public class OrderProcessor {
 	private IPaymentService paymentSystem;
 
 	public OrderProcessor(IFoodMenu menuService, IPaymentService paymentSystem) {
-		// TODO Auto-generated constructor stub
 		this.menuService = menuService;
 		this.paymentSystem = paymentSystem;
 	}
