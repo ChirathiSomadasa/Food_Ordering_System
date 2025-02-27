@@ -5,7 +5,18 @@ public class PaymentService implements IPaymentService{
 	@Override
 	
 	public boolean verifyPayment(String paymentMethod,double amount) {
-		System.out.println("Verifying payment of $" + amount + "via" + paymentMethod);
+		
+		//Format the amount to 2 decimal points
+		String formattedAmount = String.format("%.2f", amount);
+		
+		//Display the total payment amount
+		System.out.println("Total Amount       : $" + formattedAmount);
+		
+		//Display the payment method
+		System.out.println("Payment Method     : " + paymentMethod);
+		
+		System.out.println("===========================================\n");
+		
 		return true;//Simulate payment verification
 	}
 

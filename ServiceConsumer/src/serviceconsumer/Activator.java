@@ -20,7 +20,7 @@ public class Activator implements BundleActivator {
 	@Override
 	public void start(BundleContext context) throws Exception {
 
-		System.out.println("Consumer services strated....");
+		System.out.println(".....Consumer services strated.....\n");
 		
 		//Get references to the producer services
 		
@@ -42,9 +42,9 @@ public class Activator implements BundleActivator {
 
 		//sample data
 		orderProcessor.placeOrder("Pizza", 2);
-		paymentSystem.processPayment("Pizza", 2, "Credit Card", foodMenuService, "Credit Card");
 		orderProcessor.processOrder("Pizza", 2);
 		customerSystem.inputCustomerDetails("Amali", "amali@gmail.com", "Kurunegala", "0110000000");
+		paymentSystem.processPayment("Pizza", 2, "Credit Card", foodMenuService, "Credit Card");
 		restaurantSystem.notifyCustomer("12345","delivered");
 		customerSystem.notifyCustomer("Order is comfirmed");// Provide notification
 
@@ -53,7 +53,7 @@ public class Activator implements BundleActivator {
 	@Override
 	public void stop(BundleContext context) throws Exception {
 
-		System.out.println("Consumer services stopped");
+		System.out.println(".....Consumer services stopped.....");
 
 		context.ungetService(foodMenuServiceReference);
 		context.ungetService(customerServiceReference);
