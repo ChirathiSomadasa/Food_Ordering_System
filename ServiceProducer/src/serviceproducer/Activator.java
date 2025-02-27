@@ -14,7 +14,7 @@ public class Activator implements BundleActivator {
 
 	@Override
 	public void start(BundleContext context) throws Exception {
-		System.out.println(".....Producer Services started.....");
+		System.out.println(".....Producer Services started.....\n");
 
 		RestaurantService restaurantService = new RestaurantService();
 		foodMenuReServiceRegistration = context.registerService(

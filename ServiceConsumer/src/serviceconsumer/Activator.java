@@ -20,7 +20,7 @@ public class Activator implements BundleActivator {
 	@Override
 	public void start(BundleContext context) throws Exception {
 
-		System.out.println(".....Consumer services strated.....");
+		System.out.println(".....Consumer services strated.....\n");
 		
 		//Get references to the producer services
 		
