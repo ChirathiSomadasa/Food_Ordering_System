@@ -56,7 +56,6 @@ public class Activator implements BundleActivator {
 
 		System.out.println(".....Consumer services stopped.....");
 		context.ungetService(customerServiceReference);
-
 		context.ungetService(foodMenuReServiceReference);
 		context.ungetService(paymentServiceReference);
 
