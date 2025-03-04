@@ -9,10 +9,10 @@ public class RestaurantService implements IFoodMenu {
 
 	
 	public RestaurantService() {
-		menu.put("Burger ", 200.00);
-		menu.put("Pizza  ", 400.00);
-		menu.put("Salad  ", 200.00);
-		menu.put("Pasta  ", 300.00);
+		menu.put("Burger", 200.00);
+		menu.put("Pizza", 400.00);
+		menu.put("Salad", 200.00);
+		menu.put("Pasta", 300.00);
 
 	}
 
@@ -31,15 +31,15 @@ public class RestaurantService implements IFoodMenu {
 	}
 
 	@Override
-	public void processOrder(String item, int qty, double totalAmount) {
+	public void processOrder(String item, int qty) {
+//		System.out.println("Processing order : " + item + " x " + qty );
 		
 		System.out.println("\n==========ORDER DETAILS==========");
-		System.out.println("Food Item    :" + item + " ==>  LKR " + getPrice(item));
-		System.out.println("Quantity     :" + qty);
-		System.out.println("Total Amount :LKR " + totalAmount);
+		System.out.println("Food Item    :" + item);
+		System.out.println("Quantity   :" + qty);
+//		System.out.println("Total Amount :" + address);
+//		System.out.println("Customer Contact :" + contact);
 		System.out.println("====================================\n");
 	}
-
-
 
 }

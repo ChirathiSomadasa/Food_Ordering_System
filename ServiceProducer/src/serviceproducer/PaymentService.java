@@ -10,7 +10,7 @@ public class PaymentService implements IPaymentService{
 		String formattedAmount = String.format("%.2f", amount);
 		
 		//Display the total payment amount
-		System.out.println("Total Amount       : LKR " + formattedAmount);
+		System.out.println("Total Amount       : $" + formattedAmount);
 		
 		//Display the payment method
 		System.out.println("Payment Method     : " + paymentMethod);
