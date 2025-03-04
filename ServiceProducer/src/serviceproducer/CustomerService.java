@@ -2,8 +2,8 @@ package serviceproducer;
 
 /**
  * CustomerService class provides implementation for the ICustomerService
- * interface It is responsible for display customer details and sending
- * notifications
+ * interface It is responsible for display customer details , display process
+ * time and sending notifications
  */
 public class CustomerService implements ICustomerService {
 
@@ -31,12 +31,14 @@ public class CustomerService implements ICustomerService {
 		System.out.println("" + message);// Display given message
 	}
 
+	/**
+	 * display order process time to the customer with the given time
+	 */
 	@Override
 	public void displayProcessTime(String time) {
 		System.out.println("\n==========PROCESS DETAILS===========");
-		System.out.println("Order Process Time : "+time);
+		System.out.println("Order Process Time : " + time);// display given process time
 		System.out.println("====================================");
-
 
 	}
 

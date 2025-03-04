@@ -11,7 +11,7 @@ import serviceproducer.IPaymentService;
 import serviceproducer.IDeliveryService;
 
 public class Activator implements BundleActivator {
-	
+
 	private ServiceReference foodMenuServiceReference;
 	private ServiceReference customerServiceReference;
 	private ServiceReference deliveryServiceReference;
@@ -21,14 +21,14 @@ public class Activator implements BundleActivator {
 	public void start(BundleContext context) throws Exception {
 
 		System.out.println(".....Consumer services strated.....\n");
-		
-		//Get references to the producer services
-		
+
+		// Get references to the producer services
+
 		foodMenuServiceReference = context.getServiceReference(IFoodMenu.class.getName());
 		customerServiceReference = context.getServiceReference(ICustomerService.class.getName());
 		paymentServiceReference = context.getServiceReference(IPaymentService.class.getName());
 		deliveryServiceReference = context.getServiceReference(IDeliveryService.class.getName());
-		
+
 		IFoodMenu foodMenuService = (IFoodMenu) context.getService(foodMenuServiceReference);
 		ICustomerService customerService = (ICustomerService) context.getService(customerServiceReference);
 		IPaymentService paymentService = (IPaymentService) context.getService(paymentServiceReference);
@@ -36,18 +36,18 @@ public class Activator implements BundleActivator {
 
 		// Initialize consumer services
 		RestaurantSystem restaurantSystem = new RestaurantSystem(deliveryService);
-		PaymentSystem paymentSystem = new PaymentSystem(paymentService,foodMenuService);
+		PaymentSystem paymentSystem = new PaymentSystem(paymentService, foodMenuService);
 		OrderProcessor orderProcessor = new OrderProcessor(foodMenuService);
-		CustomerSystem customerSystem = new CustomerSystem(customerService);// Create an object of CustomerSystem using the retrieved customerService
+		CustomerSystem customerSystem = new CustomerSystem(customerService);
 
-		//sample data
+		// sample data
 		orderProcessor.placeOrder("Pizza", 2);
 		orderProcessor.processOrder("Pizza", 2);
-		customerSystem.inputCustomerDetails("Amali", "amali@gmail.com", "Kurunegala", "0110000000");
+		customerSystem.inputCustomerDetails("Amali", "amali@gmail.com", "Kurunegala", "0766754321");
 		customerSystem.displayProcessTime("30 minutes");
 		paymentSystem.processPayment("Pizza", 2, "Credit Card", foodMenuService, "Credit Card");
-		restaurantSystem.notifyCustomer("12345","delivered");
- 
+		restaurantSystem.notifyCustomer("12345", "delivered");
+
 	}
 
 	@Override

@@ -32,11 +32,12 @@ public class CustomerSystem {
 	public void notifyCustomer(String message) {
 		customerService.notifyCustomer(message);
 	}
-	
+
+	/**
+	 * Accepts time and forwarding them to the customer service
+	 */
 	public void displayProcessTime(String time) {
 		customerService.displayProcessTime(time);
 	}
-	
-
 
 }
