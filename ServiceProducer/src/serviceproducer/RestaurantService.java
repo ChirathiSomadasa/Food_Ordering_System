@@ -30,7 +30,7 @@ public class RestaurantService implements IFoodMenu {
 		System.out.println("===================================");
         System.out.println("            FOOD MENU              ");
         System.out.println("===================================");
-        System.out.printf("%-25s %s\n", "Item", "Price(LKR)");
+        System.out.printf("%-25s %s\n", "Item", "Price(RS)");
         System.out.println("-----------------------------------");
         
 		for( Map.Entry<String, Double> entry : menu.entrySet()) {
@@ -49,7 +49,7 @@ public class RestaurantService implements IFoodMenu {
 	public void processOrder(String item, int qty) {
 		
 		System.out.println("\n============ORDER DETAILS============");
-		System.out.println("Food Item    : " + item + " => LKR " + getPrice(item));
+		System.out.println("Food Item    : " + item + " => RS " + getPrice(item));
 		System.out.println("Quantity     : " + qty);
 
 		System.out.println("=====================================\n");
