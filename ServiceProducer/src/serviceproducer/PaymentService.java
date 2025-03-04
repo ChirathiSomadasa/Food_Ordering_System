@@ -10,12 +10,12 @@ public class PaymentService implements IPaymentService{
 		String formattedAmount = String.format("%.2f", amount);
 		
 		//Display the total payment amount
-		System.out.println("Total Amount       : LKR " + formattedAmount);
-		
+		System.out.println("Total Amount Payable        : Rs " + formattedAmount);
+
 		//Display the payment method
-		System.out.println("Payment Method     : " + paymentMethod);
+		System.out.println("Payment Method              : " + paymentMethod);
 		
-		System.out.println("===========================================\n");
+		System.out.println("===========================================================\n");
 		
  		return true;//Simulate payment verification
 	}
