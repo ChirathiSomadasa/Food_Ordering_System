@@ -40,13 +40,15 @@ public class Activator implements BundleActivator {
 		OrderProcessor orderProcessor = new OrderProcessor(foodMenuService);
 		CustomerSystem customerSystem = new CustomerSystem(customerService);
 
-		// sample data
-		orderProcessor.placeOrder("Pizza", 2);
-		orderProcessor.processOrder("Pizza", 2);
+
+		//sample data
+		orderProcessor.placeOrder("Margherita Pizza", 2);
+		orderProcessor.processOrder("Margherita Pizza", 2);
 		customerSystem.inputCustomerDetails("Amali", "amali@gmail.com", "Kurunegala", "0766754321");
 		customerSystem.displayProcessTime("30 minutes");
-		paymentSystem.processPayment("Pizza", 2, "Credit Card", foodMenuService, "Credit Card");
-		restaurantSystem.notifyCustomer("12345", "delivered");
+		paymentSystem.processPayment("Margherita Pizza", 2, "Credit Card", foodMenuService, "Credit Card");
+		restaurantSystem.notifyCustomer("12345","delivered");
+
 
 	}
 

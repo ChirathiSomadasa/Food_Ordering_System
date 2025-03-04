@@ -1,32 +1,45 @@
 package serviceproducer;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class RestaurantService implements IFoodMenu {
 	
-	private Map<String, Double> menu = new HashMap();
+	private Map<String, Double> menu = new LinkedHashMap<>();
 
 	
 	public RestaurantService() {
-		menu.put("Burger", 200.00);
-		menu.put("Pizza", 400.00);
-		menu.put("Salad", 200.00);
-		menu.put("Pasta", 300.00);
-
+		menu.put("Cheese Burger", 250.00);
+        menu.put("Chicken Burger", 300.00);
+        menu.put("Veggie Burger", 220.00);
+        menu.put("Margherita Pizza", 450.00);
+        menu.put("Pepperoni Pizza", 500.00);
+        menu.put("BBQ Chicken Pizza", 550.00);
+        menu.put("Greek Salad", 280.00);
+        menu.put("Caesar Salad", 300.00);
+        menu.put("Garden Salad", 250.00);
+        menu.put("Spaghetti Carbonara", 350.00);
+        menu.put("Penne Arrabbiata", 320.00);
+        menu.put("Lasagna", 400.00);
 	}
 
 	@Override
 	public void displayMenu() {
-		System.out.println("=========Food Menu=========\n");
 		
+		System.out.println("===================================");
+        System.out.println("            FOOD MENU              ");
+        System.out.println("===================================");
+        System.out.printf("%-25s %s\n", "Item", "Price(LKR)");
+        System.out.println("-----------------------------------");
+        
 		for( Map.Entry<String, Double> entry : menu.entrySet()) {
-			System.out.println(entry.getKey() + " : LKR " + entry.getValue());
+ 
+			System.out.printf("%-25s %.2f\n", entry.getKey(), entry.getValue());
 		}
 		
-		System.out.println("===========================\n");
-
-	}
+        System.out.println("===================================\n");
+ 	}
 
 	@Override
 	public Double getPrice(String item) {
@@ -35,14 +48,13 @@ public class RestaurantService implements IFoodMenu {
 
 	@Override
 	public void processOrder(String item, int qty) {
-//		System.out.println("Processing order : " + item + " x " + qty );
 		
-		System.out.println("\n==========ORDER DETAILS==========");
-		System.out.println("Food Item    :" + item);
-		System.out.println("Quantity     :" + qty);
-//		System.out.println("Total Amount :" + address);
-//		System.out.println("Customer Contact :" + contact);
-		System.out.println("=================================\n");
-	}
+ 
+		System.out.println("\n============ORDER DETAILS============");
+		System.out.println("Food Item    : " + item + " => LKR " + getPrice(item));
+		System.out.println("Quantity     : " + qty);
+
+		System.out.println("=====================================\n");
+ 	}
 
 }

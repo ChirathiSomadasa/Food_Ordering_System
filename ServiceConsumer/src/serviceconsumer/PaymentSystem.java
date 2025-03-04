@@ -18,10 +18,7 @@ private IFoodMenu menuService;
 		double totalAmount = itemPrice * quantity;
 		System.out.println("\n==============PAYMENT DETAILS==============");
 		System.out.println("Calculating total : "+ quantity+ " x LKR" + itemPrice + " = LKR" + totalAmount);
-		System.out.println("Total Amount      : " + totalAmount);
-		System.out.println("Payment Method    : " + paymentMethod);
-
-		System.out.println("===========================================");
+		 
 		boolean verified = paymentService.verifyPayment(paymentMethod, totalAmount);
 		
 		System.out.println("\n==============PAYMENT STATUS==============");
