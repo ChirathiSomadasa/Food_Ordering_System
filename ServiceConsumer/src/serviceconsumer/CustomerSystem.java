@@ -33,6 +33,10 @@ public class CustomerSystem {
 		customerService.notifyCustomer(message);
 	}
 	
+	public void displayProcessTime(String time) {
+		customerService.displayProcessTime(time);
+	}
+	
 
 
 }
