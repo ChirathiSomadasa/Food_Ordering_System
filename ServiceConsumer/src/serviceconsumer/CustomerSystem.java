@@ -36,8 +36,8 @@ public class CustomerSystem {
 	/**
 	 * Accepts time and forwarding them to the customer service
 	 */
-	public void displayProcessTime(String time) {
-		customerService.displayProcessTime(time);
+	public void displayProcessStatus( ) {
+		customerService.displayProcessStatus( );
 	}
 
 }
