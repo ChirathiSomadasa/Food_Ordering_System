@@ -3,7 +3,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: ServiceProducer
 Bundle-SymbolicName: ServiceProducer
 Bundle-Version: 1.0.0.qualifier
-Export-Package: serviceproducer
 Bundle-Activator: serviceproducer.Activator
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Automatic-Module-Name: ServiceProducer
