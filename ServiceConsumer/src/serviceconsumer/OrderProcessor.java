@@ -16,7 +16,7 @@ public class OrderProcessor {
 	
 	public void placeOrder(String item, int qty) {
 		menuService.displayMenu();
-		System.out.println("Order place : " + item + " x " + qty );
+		System.out.println("\nCustomer place order : " + item + " x " + qty + "\n" );
 		
 
 	}
