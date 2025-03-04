@@ -7,7 +7,7 @@ public RestaurantSystem(IDeliveryService deliveryService) {
 	this.deliveryService = deliveryService;
 }
 
-public void notifyCustomer(String orderId, String status) {
-	deliveryService.updateDeliveryStatus(orderId,  status);
+public void notifyCustomer(String orderId, String status, String item, int quantity, String paymentMethod) {
+	deliveryService.updateDeliveryStatus(orderId,  status,  item,  quantity,  paymentMethod);
 }
 }
