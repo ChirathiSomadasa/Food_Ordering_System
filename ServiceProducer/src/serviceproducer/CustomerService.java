@@ -48,7 +48,7 @@ public class CustomerService implements ICustomerService {
 	 */
 	@Override
 	public void displayProcessStatus() {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(" HH:mm ");
 		System.out.println("\n==========PROCESS STATUS============");
 		System.out.println("Order Creation Time   : " + creationTime.format(formatter));// display order creation time
 		System.out.println("Food Preparation Time : " + preparationTime.format(formatter));// display food preparation time
