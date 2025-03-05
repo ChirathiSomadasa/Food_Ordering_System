@@ -6,11 +6,11 @@ import org.osgi.framework.ServiceRegistration;
 
 public class Activator implements BundleActivator {
 
+	private ServiceRegistration loginServiceRegistration;
 	private ServiceRegistration customerServiceRegistration;
 	private ServiceRegistration foodMenuReServiceRegistration;
 	private ServiceRegistration deliveryServiceRegistration;
 	private ServiceRegistration paymentServiceRegistration;
-	private ServiceRegistration loginServiceRegistration;
 
 	@Override
 	public void start(BundleContext context) throws Exception {
