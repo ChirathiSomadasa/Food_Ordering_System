@@ -8,7 +8,7 @@ public class PaymentSystem {
 
 private IPaymentService paymentService;
 private IFoodMenu menuService;
-private  ICustomerService customerService;
+private ICustomerService customerService;
 	
 	public PaymentSystem(IPaymentService paymentService,IFoodMenu menuService,ICustomerService customerService) {
 		
@@ -40,6 +40,7 @@ private  ICustomerService customerService;
 		System.out.println("Discount Applied            : Rs "+ formattedTotalAmount + " x " + discountPercentage + "% = Rs " + formattedDiscountAmount);
 		System.out.println("Amount After Discount       : Rs "+ formattedAmountAfterDiscount);
 		System.out.println("Delivery Cost               : Rs "+ formattedDeliveryCost);
+		
 		//Verify the payment
 		boolean verified = paymentService.verifyPayment(paymentMethod, finalAmount);
  

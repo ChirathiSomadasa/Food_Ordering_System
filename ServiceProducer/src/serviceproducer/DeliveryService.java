@@ -30,7 +30,7 @@ public class DeliveryService implements IDeliveryService {
 		
 		
 		if("Delivered".equalsIgnoreCase(status)) {
-			customerService.notifyCustomer("Your order " + orderId + " has been delivered successfully.\nThankyou for ordering from us!!");
+			customerService.notifyCustomer("Your order " + orderId + " has been delivered successfully.\nThank you for ordering from us!!");
 			System.out.println("=========================================\n");
 		}
 	}

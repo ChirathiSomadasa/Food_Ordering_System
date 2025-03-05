@@ -56,7 +56,7 @@ public class Activator implements BundleActivator {
 	@Override
 	public void stop(BundleContext context) throws Exception {
 
-		System.out.println("Consumer services stopped");
+		System.out.println(".....Consumer services stopped.....");
 
 		context.ungetService(foodMenuServiceReference);
 		context.ungetService(customerServiceReference);
