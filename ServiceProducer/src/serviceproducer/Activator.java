@@ -10,11 +10,15 @@ public class Activator implements BundleActivator {
 	private ServiceRegistration foodMenuReServiceRegistration;
 	private ServiceRegistration deliveryServiceRegistration;
 	private ServiceRegistration paymentServiceRegistration;
-	
+	private ServiceRegistration loginServiceRegistration;
 
 	@Override
 	public void start(BundleContext context) throws Exception {
 		System.out.println(".....Producer Services started.....\n");
+		
+		LoginService loginService = new LoginService();
+		loginServiceRegistration = context.registerService(
+				ILoginService.class.getName(), loginService, null);
 
 		RestaurantService restaurantService = new RestaurantService();
 		foodMenuReServiceRegistration = context.registerService(
@@ -32,7 +36,6 @@ public class Activator implements BundleActivator {
 		deliveryServiceRegistration = context.registerService(
 				IDeliveryService.class.getName(), deliveryService, null);
 		
-
 	}
 
 	@Override
@@ -40,10 +43,12 @@ public class Activator implements BundleActivator {
 
 		System.out.println(".....Producer Services stopped.....");
 
+		loginServiceRegistration.unregister();
 		foodMenuReServiceRegistration.unregister();
 		customerServiceRegistration.unregister();		
 		paymentServiceRegistration.unregister();
 		deliveryServiceRegistration.unregister();
+		
 		
 
 	}
