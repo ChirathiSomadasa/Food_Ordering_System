@@ -47,7 +47,8 @@ public class Activator implements BundleActivator {
 		customerSystem.inputCustomerDetails("Amali", "amali@gmail.com", "Kurunegala", "0766754321");
 		customerSystem.displayProcessStatus();
 		paymentSystem.processPayment("Margherita Pizza", 2, "Credit Card", foodMenuService, "Credit Card","Amali",10.0,50.0);
-		restaurantSystem.notifyCustomer("12345", "delivered");
+		restaurantSystem.notifyCustomer("Amali","kurunegala", "Pizza", 2,"Paid" , "1234", "Delivered" );
+
 
 	}
 

@@ -35,7 +35,7 @@ private  ICustomerService customerService;
 		String formattedFinalAmount = String.format("%.2f", finalAmount);
 		
 		//Display the calculation of the total amount
-		System.out.println("\n======================PAYMENT DETAILS======================");
+		System.out.println("\n\n======================PAYMENT DETAILS======================");
 		System.out.println("Calculating Item Price      : "+ quantity + " x Rs " + formattedItemPrice + "     = Rs " + formattedTotalAmount);
 		System.out.println("Discount Applied            : Rs "+ formattedTotalAmount + " x " + discountPercentage + "% = Rs " + formattedDiscountAmount);
 		System.out.println("Amount After Discount       : Rs "+ formattedAmountAfterDiscount);
@@ -56,7 +56,6 @@ private  ICustomerService customerService;
 			System.out.println("Payment failed. Please try again");
 			System.out.println("====================================================\n");
  		}
-		System.out.println("===========================================\n");
 
 	}
 }
