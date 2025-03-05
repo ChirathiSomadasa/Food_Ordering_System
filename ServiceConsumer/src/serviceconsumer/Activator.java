@@ -49,7 +49,7 @@ public class Activator implements BundleActivator {
 		paymentSystem.processPayment("Pizza", 2, "Credit Card", foodMenuService, "Credit Card");
 		
 		customerSystem.notifyCustomer("Order is comfirmed");// Provide notification
-		restaurantSystem.notifyCustomer("12345","delivered","Pizza",2,"Credit Card" );
+		restaurantSystem.notifyCustomer("Amali","kurunegala", "Pizza", 2,"Paid" , "1234", "Delivered" );
 	}
 
 	@Override
