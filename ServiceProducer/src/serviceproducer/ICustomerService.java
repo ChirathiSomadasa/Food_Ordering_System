@@ -14,6 +14,6 @@ public interface ICustomerService {
 	void notifyCustomer(String message);
 
 	// display order process status
-	void displayProcessStatus();
+	void displayProcessStatus(String name);
 
 }

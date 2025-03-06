@@ -15,7 +15,6 @@ public class CustomerService implements ICustomerService {
 	private LocalDateTime preparationTime;
 	private LocalDateTime dispatchTime;
 	private LocalDateTime arrivalTime;
-	
 
 	public CustomerService(IPaymentService paymentService) {
 		this.paymentService = paymentService;
@@ -47,14 +46,33 @@ public class CustomerService implements ICustomerService {
 	 * display order process status to the customer with the given time
 	 */
 	@Override
-	public void displayProcessStatus() {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(" HH:mm ");
-		System.out.println("\n==========PROCESS STATUS============");
+	public void displayProcessStatus(String name) {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(" HH:mm a");
+
+		System.out.println("\n==========PROCESS STATUS===================");
+
+		int hour = creationTime.getHour();
+
+		if (hour >= 1 && hour < 12) {
+			System.out.println("Good Morning, " + name + "!");
+			System.out.println("Your order is being prepared with love and care !!");
+		} else if (hour >= 12 && hour < 17) {
+			System.out.println("Good Afternoon, " + name + "!");
+			System.out.println("We are making sure your order reaches you fresh and delicious!!");
+
+		} else {
+			System.out.println("Good Evening, " + name + "!");
+			System.out.println("A warm and tasty meal is coming your way!!");
+
+		}
+
+		System.out.println("-------------------------------------------");
 		System.out.println("Order Creation Time   : " + creationTime.format(formatter));// display order creation time
-		System.out.println("Food Preparation Time : " + preparationTime.format(formatter));// display food preparation time
-		System.out.println("Dispatch Time         : " + dispatchTime.format(formatter));// display order dispatch  time
+		System.out.println("Food Preparation Time : " + preparationTime.format(formatter));// display food preparation
+																							// time
+		System.out.println("Dispatch Time         : " + dispatchTime.format(formatter));// display order dispatch time
 		System.out.println("Arrival Time          : " + arrivalTime.format(formatter));// display order arrival time
- 		System.out.println("====================================");
+		System.out.println("===========================================");
 
 	}
 
